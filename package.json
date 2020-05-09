@@ -1,0 +1,47 @@
+{
+  "name": "@kne/use-click-outside",
+  "version": "0.1.0",
+  "description": "点击空白响应事件的hooks",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "umd": "dist/use-click-outside.js",
+  "umd:min": "dist/use-click-outside.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start-demo": "cd example&&npm start",
+    "start": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kne-union/use-click-outside.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "hooks",
+    "outside"
+  ],
+  "author": "linzp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kne-union/use-click-outside/issues"
+  },
+  "homepage": "https://github.com/kne-union/use-click-outside#readme",
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "babel-preset-react-app": "^9.1.0",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-terser": "^5.1.3"
+  }
+}
