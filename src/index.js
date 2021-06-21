@@ -7,20 +7,20 @@
 import {useEffect, useRef} from 'react'
 
 export default (onClickOutside, dom) => {
-  const outerRef = useRef(null);
+    const outerRef = useRef(null);
 
-  const outerClickHandler = (e) => {
-    if (!outerRef.current.contains(e.target)) {
-      onClickOutside && onClickOutside(e);
-    }
-  };
+    const outerClickHandler = (e) => {
+        if (outerRef.current && !outerRef.current.contains(e.target)) {
+            onClickOutside && onClickOutside(e);
+        }
+    };
 
-  useEffect(() => {
-    const eventDom = dom || document.body;
-    eventDom.addEventListener('click', outerClickHandler);
-    return () => {
-      eventDom.removeEventListener('click', outerClickHandler);
-    }
-  }, [dom]);
-  return outerRef;
+    useEffect(() => {
+        const eventDom = dom || document.body;
+        eventDom.addEventListener('click', outerClickHandler);
+        return () => {
+            eventDom.removeEventListener('click', outerClickHandler);
+        }
+    }, [dom]);
+    return outerRef;
 };
