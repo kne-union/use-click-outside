@@ -4,16 +4,17 @@
  * @description: 点击空白响应事件的hooks ;
  * */
 
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useCallback} from 'react'
 
-export default (onClickOutside, dom) => {
+export default (onClickOutside, dom, deps) => {
     const outerRef = useRef(null);
-
-    const outerClickHandler = (e) => {
+    const clickOutSideRef = useRef(onClickOutside);
+    clickOutSideRef.current = onClickOutside;
+    const outerClickHandler = useCallback((e) => {
         if (outerRef.current && !outerRef.current.contains(e.target)) {
-            onClickOutside && onClickOutside(e);
+            clickOutSideRef.current && clickOutSideRef.current(e);
         }
-    };
+    }, []);
 
     useEffect(() => {
         const eventDom = dom || document.body;
@@ -21,6 +22,6 @@ export default (onClickOutside, dom) => {
         return () => {
             eventDom.removeEventListener('click', outerClickHandler);
         }
-    }, [dom]);
+    }, [dom, outerClickHandler]);
     return outerRef;
 };
