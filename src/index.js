@@ -1,12 +1,6 @@
-/**
- * @name: use-click-outside ;
- * @author: admin ;
- * @description: 点击空白响应事件的hooks ;
- * */
-
 import {useEffect, useRef, useCallback} from 'react'
 
-export default (onClickOutside, dom, deps) => {
+export default (onClickOutside, dom) => {
     const outerRef = useRef(null);
     const clickOutSideRef = useRef(onClickOutside);
     clickOutSideRef.current = onClickOutside;

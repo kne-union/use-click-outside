@@ -1,0 +1,20 @@
+{
+  "isFull": false,
+  "list": [
+    {
+      "title": "基本示例",
+      "description": "点击容器外部就弹窗提示",
+      "code": "./base.js",
+      "scope": [
+        {
+          "name": "_useClickOutside",
+          "packageName": "@kne/use-click-outside"
+        },
+        {
+          "name": "_message",
+          "packageName": "antd/lib/message"
+        }
+      ]
+    }
+  ]
+}
